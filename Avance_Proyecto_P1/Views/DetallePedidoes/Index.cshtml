@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Avance_Proyecto_P1.Models.DetallePedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Detalles de Pedidos</h1>
+
+<p>
+    <a asp-action="Create">Añadir Detalles</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EncabezadoPedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pieza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EncabezadoPedido.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pieza.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
