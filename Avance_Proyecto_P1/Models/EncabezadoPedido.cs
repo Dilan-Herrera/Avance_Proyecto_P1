@@ -16,7 +16,10 @@ namespace Avance_Proyecto_P1.Models
         public Cliente? Cliente { get; set; }
         [ForeignKey(nameof(Cliente))]
         public int IdCliente { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime FechaPedido { get; set; } = DateTime.Now;
+        [Required]
         public Estados Estado { get; set; }
     }
 }
