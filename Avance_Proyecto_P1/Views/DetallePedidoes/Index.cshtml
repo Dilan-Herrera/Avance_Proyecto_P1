@@ -1,53 +1,39 @@
 ﻿@model IEnumerable<Avance_Proyecto_P1.Models.DetallePedido>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Detalles de Pedidos";
 }
 
-<h1>Detalles de Pedidos</h1>
+<h2 style="color: black; font-weight: bold;">Detalles de Pedidos</h2>
 
 <p>
-    <a asp-action="Create">Añadir Detalles</a>
+    <a asp-action="Create" style="padding: 10px 20px; background-color: yellow; color: black; text-decoration: none; border-radius: 5px; font-weight: bold;">Añadir Detalles</a>
 </p>
-<table class="table">
+
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.EncabezadoPedido)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pieza)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Total)
-            </th>
-            <th></th>
+            <th style="background-color: black; color: yellow; font-weight: bold; padding: 10px;">Encabezado Pedido</th>
+            <th style="background-color: black; color: yellow; font-weight: bold; padding: 10px;">Pieza</th>
+            <th style="background-color: black; color: yellow; font-weight: bold; padding: 10px;">Cantidad</th>
+            <th style="background-color: black; color: yellow; font-weight: bold; padding: 10px;">Total</th>
+            <th style="background-color: black; color: yellow; font-weight: bold; padding: 10px;">Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EncabezadoPedido.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pieza.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cantidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr style="background-color: #f4f4f9; color: black;">
+                <td style="padding: 10px; border: 1px solid black;">@Html.DisplayFor(modelItem => item.EncabezadoPedido.Id)</td>
+                <td style="padding: 10px; border: 1px solid black;">@Html.DisplayFor(modelItem => item.Pieza.Name)</td>
+                <td style="padding: 10px; border: 1px solid black;">@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                <td style="padding: 10px; border: 1px solid black;">@Html.DisplayFor(modelItem => item.Total)</td>
+                <td style="padding: 10px; border: 1px solid black;">
+                    <a asp-action="Edit" asp-route-id="@item.Id" style="color: black; text-decoration: none; margin-right: 10px;">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" style="color: black; text-decoration: none; margin-right: 10px;">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" style="color: black; text-decoration: none;">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

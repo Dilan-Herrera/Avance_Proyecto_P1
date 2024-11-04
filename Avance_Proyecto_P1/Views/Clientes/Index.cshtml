@@ -1,53 +1,69 @@
 ﻿@model IEnumerable<Avance_Proyecto_P1.Models.Cliente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Clientes";
 }
 
-<h1>Clientes</h1>
 
-<p>
-    <a asp-action="Create">Añadir Cliente</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Direccion)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+
+<!-- Breadcrumb -->
+<div style="background-color: #f4f4f9; padding: 15px;">
+    <div style="max-width: 1200px; margin: auto;">
+        <p style="color: #666; margin: 0;">Home / Clientes</p>
+    </div>
+</div>
+
+<!-- Contenido Principal de la Sección -->
+<section style="background-color: white; color: black; padding: 40px 20px; max-width: 1200px; margin: auto; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2 style="font-size: 1.8em; font-weight: bold; color: black;">Nuestros Clientes</h2>
+        <a asp-action="Create" style="padding: 10px 20px; background-color: yellow; color: black; text-decoration: none; border-radius: 5px; font-weight: bold;">Añadir Cliente</a>
+    </div>
+
+    <!-- Tabla de Clientes -->
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr>
+                <th style="background-color: black; color: yellow; font-weight: bold; padding: 15px; text-align: left; border: 1px solid black;">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th style="background-color: black; color: yellow; font-weight: bold; padding: 15px; text-align: left; border: 1px solid black;">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th style="background-color: black; color: yellow; font-weight: bold; padding: 15px; text-align: left; border: 1px solid black;">
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th style="background-color: black; color: yellow; font-weight: bold; padding: 15px; text-align: left; border: 1px solid black;">
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </th>
+                <th style="background-color: black; color: yellow; font-weight: bold; padding: 15px; text-align: left; border: 1px solid black;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="background-color: #f4f4f9; color: black;">
+                    <td style="padding: 15px; border: 1px solid black;">
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td style="padding: 15px; border: 1px solid black;">
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td style="padding: 15px; border: 1px solid black;">
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td style="padding: 15px; border: 1px solid black;">
+                        @Html.DisplayFor(modelItem => item.Direccion)
+                    </td>
+                    <td style="padding: 15px; border: 1px solid black;" class="action-links">
+                        <a asp-action="Edit" asp-route-id="@item.Id" style="color: black; margin-right: 10px; text-decoration: none;">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" style="color: black; margin-right: 10px; text-decoration: none;">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" style="color: black; text-decoration: none;">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
