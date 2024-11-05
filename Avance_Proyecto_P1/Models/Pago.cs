@@ -12,7 +12,7 @@ namespace Avance_Proyecto_P1.Models
         public int Id { get; set; }
         [Required]
         [DataType(DataType.Date)]
-        public DateTime FechaPago { get; set; } = DateTime.Now;
+        public DateTime FechaPago { get; set; }
         [Required]
         public double Monto { get; set; }
         [Required]
